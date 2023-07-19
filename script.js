@@ -12,6 +12,7 @@ let count = 0;
 
 links.forEach((link, indx) => {
   link.addEventListener('click', () => {
+    count = indx;
     links.forEach((link) => {
       link.classList.remove('active');
     });
