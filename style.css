@@ -62,18 +62,31 @@ li.slide-item.show {
 .slider-content {
     position: absolute;
     top: 50%;
+    width: 100%;
+}
+
+.slider-content.left {
     left: 100px;
     transform: translateY(-50%);
+}
+
+.slider-content.right {
+    right: 100px;
+    transform: translateY(-50%);
+    text-align: right;
+}
+
+.slider-content.center {
+    top: 10%;
+    text-align: center;
 }
 
 .slider-content .content-title {
     color: #000;
     font-size: 96px;
-    mix-blend-mode: difference;
     line-height: 1;
     letter-spacing: 1.5px;
     margin-bottom: 30px;
-
 
     opacity: 0;
 }
@@ -114,25 +127,46 @@ li.slide-item.show {
 }
 
 /* ================= */
-.slider-nav {
+.slider-indicators {
+    position: absolute;
+    top: calc(100% - 58px);
+    right: 40px;
     list-style: none;
     display: flex;
-    column-gap: 10px;
-
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    gap: 5px;
 }
 
-.slider-nav li a {
-    display: inline-block;
-    background-color: black;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+.svg-circle {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
 
-.active {
-    outline: 1px solid red;
-    outline-offset: 2px;
+.track {
+    fill: none;
+    stroke: rgb(196, 196, 196);
+    stroke-width: 3px;
+}
+
+.progress {
+    fill: none;
+    stroke: rgb(59, 56, 56);
+    stroke-width: 3px;
+    stroke-dasharray: 75;
+    stroke-dashoffset: 75;
+
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.indicators.active .progress {
+    stroke-dasharray: 75;
+    stroke-dashoffset: 75;
+    animation: stroke 3s steps(75) forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
 }

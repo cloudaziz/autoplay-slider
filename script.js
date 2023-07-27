@@ -2,13 +2,13 @@ let slideItems = document.querySelectorAll('.slide-item');
 
 let slider = document.querySelector('.slider');
 
-let links = document.querySelectorAll('.slider-nav > li > a');
+let links = document.querySelectorAll('.slider-indicators > li');
 
 let contentTitles = document.querySelectorAll('.content-title');
 
 let contentBtns = document.querySelectorAll('.content-btn');
 
-let count = 0;
+let count = 1;
 
 links.forEach((link, indx) => {
   link.addEventListener('click', () => {
@@ -41,7 +41,7 @@ links.forEach((link, indx) => {
 
 // autoSliding
 
-let autoplay = setInterval(playitem, 2000);
+let autoplay = setInterval(playitem, 3000);
 function playitem() {
   links.forEach((link) => {
     link.classList.remove('active');
